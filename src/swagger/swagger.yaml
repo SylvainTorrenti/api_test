@@ -1,0 +1,24 @@
+swagger: "2.0"
+
+definitions:
+  ObjectResponse:
+    type: object
+  ErrorResponse:
+    type: object
+    properties:
+      message:
+        type: string
+      code:
+        type: string
+      stack:
+        type: array
+        items:
+          type: string
+
+tags:
+  - name: private
+    description: Private documents for a single site with access token mandatory
+  - name: public
+    description: Public documents accessible by all site without access token
+  - name: depreciated
+    description: Will be removed in the next releases

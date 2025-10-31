@@ -1,0 +1,11 @@
+{
+  "default": {
+    "framework": {
+      "components": {
+        "Swagger": {
+          "host": "api.{{env}}.travelplanet.click"
+        }
+      }
+    }
+  }
+}

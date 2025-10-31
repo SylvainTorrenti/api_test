@@ -1,0 +1,45 @@
+{
+  "SG-Dev": {
+    "dbs": [
+      "cassandra1.int.dev.travelplanet.click"
+    ],
+    "user": "",
+    "password": ""
+  },
+  "SG-Qal": {
+    "dbs" :  [
+      "cassandra1.int.qal.travelplanet.click",
+      "cassandra2.int.qal.travelplanet.click",
+      "cassandra3.int.qal.travelplanet.click"
+    ],
+    "user" : "tpqal",
+    "pwd" : "Tr@v3lPl@n3t-Qu4l"
+  },
+  "SG-Tst": {
+    "dbs" :  [
+      "cassandra1.int.qal.travelplanet.click",
+      "cassandra2.int.qal.travelplanet.click",
+      "cassandra3.int.qal.travelplanet.click"
+    ],
+    "user" : "tpqal",
+    "pwd" : "Tr@v3lPl@n3t-Qu4l"
+  },
+  "SG-Htf": {
+    "dbs" :  [
+      "cassandra1.int.travelplanet.click",
+      "cassandra2.int.travelplanet.click",
+      "cassandra3.int.travelplanet.click"
+    ],
+    "user" : "tpprd",
+    "pwd" : "Tr@v3lPl@n3t-Pr0d"
+  },
+  "SG-Prd": {
+    "dbs" :  [
+      "cassandra1.int.travelplanet.click",
+      "cassandra2.int.travelplanet.click",
+      "cassandra3.int.travelplanet.click"
+    ],
+    "user" : "tpprd",
+    "pwd" : "Tr@v3lPl@n3t-Pr0d"
+  }
+}

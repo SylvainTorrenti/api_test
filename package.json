@@ -1,0 +1,43 @@
+{
+  "name": "api_test",
+  "version": "0.0.1",
+  "private": true,
+  "description": "undefined",
+  "keywords": [],
+  "author": "sylvain",
+  "license": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravelPlanetNDF/api_test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TravelPlanetNDF/api_test/issues"
+  },
+  "homepage": "https://github.com/TravelPlanetNDF/api_test#readme",
+  "dependencies": {
+    "@developpement/tpf": "x.x.x",
+    "@developpement/tp-client": "x.x.x",
+    "@developpement/tp-framework": "1.x.x",
+    "lodash": "x.x.x",
+    "request-promise": "x.x.x"
+  },
+  "devDependencies": {
+    "should": "^7.1.0",
+    "supertest": "^1.0.0",
+    "eslint": "^4.17.x",
+    "eslint-config-airbnb": "^16.1.x",
+    "eslint-plugin-import": "^2.12.x",
+    "eslint-plugin-jsx-a11y": "^6.0.x",
+    "eslint-plugin-more-naming-conventions": "^1.0.x",
+    "eslint-plugin-react": "^7.8.x",
+    "eslint-plugin-travel-planet": "^1.0.x",
+    "documentation": "^6.3.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test",
+    "postversion": "git commit package.json package-lock.json -m \"v$npm_package_version\"; echo $npm_package_version | grep -P '\\d+\\.\\d+\\.\\d+-\\d+' && git tag v$npm_package_version || echo Will be tagged with git flow",
+    "doc": "documentation build lib/ -f html -o doc"
+  }
+}

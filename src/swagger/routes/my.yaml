@@ -1,0 +1,22 @@
+/my:
+  x-swagger-router-controller: my
+  get:
+    operationId: something
+    description: Do something
+    tags:
+      - depreciated
+    parameters:
+      - name: data_token
+        in: query
+        description: The search query in a token
+        required: true
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"

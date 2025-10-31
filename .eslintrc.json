@@ -1,0 +1,39 @@
+{
+  "rules": {
+    "camelcase": 0,
+    "travel-planet/snake-case-variables": 2,
+    "travel-planet/lower-camel-case-functions": 2,
+    "linebreak-style": "off",
+    "indent": ["error", 2],
+    "import/no-unresolved": "error",
+    "prefer-const": "off",
+    "no-restricted-syntax": "off",
+    "prefer-destructuring": ["warn", {
+      "object": false,
+      "array": true
+    }],
+    "max-len": ["warn", 140],
+    "object-shorthand": "off",
+    "func-names": "off",
+    "global-require": "warn",
+    "object-curly-newline": ["error", {
+      "consistent": true
+    }],
+    "no-param-reassign": ["warn", {
+      "props": false
+    }],
+    "guard-for-in": "off",
+    "no-await-in-loop": "warn",
+    "no-else-return": ["warn"],
+    "no-unused-vars": ["warn", {
+      "vars": "all",
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    }],
+    "class-methods-use-this": "off"
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "travel-planet"
+  ]
+}
