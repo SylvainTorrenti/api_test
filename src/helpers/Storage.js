@@ -1,9 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-const { get, set, forEach, result } = require("lodash");
-const { json } = require("stream/consumers");
-const { time } = require("console");
-const { type } = require("os");
+// const { get, set, forEach, result } = require("lodash");
+// const { json } = require("stream/consumers");
+// const { time } = require("console");
+// const { type } = require("os");
 const filePath = path.join(__dirname, "storage.json");
 const copyFilePath = path.join(__dirname, "storage_backup.json");
 
@@ -25,7 +25,7 @@ async function setStorage(new_data) {
       "Les champs nom et prenom doivent être des chaînes de caractères"
     );
   }
-  const { nom, prenom, person } = new_data;
+  const { nom, prenom } = new_data;
   // prepare data for insertion
   id = Date.now();
   console.log("-------------------");
@@ -36,17 +36,28 @@ async function setStorage(new_data) {
     nom,
     prenom,
   };
+
   // check if storage.json file exists
   if (fs.existsSync(filePath)) {
     //create a backup
     fs.copyFileSync(filePath, copyFilePath);
     let existingFiles = await getStorage();
-    console.log("existingFiles------------------", existingFiles);
-    existingFiles.push(create_data);
-    // if file exists, overwrite it with new data after backing up
-    fs.writeFileSync(filePath, JSON.stringify(existingFiles), {
-      encoding: "utf8",
-    });
+    if (existingFiles.message == "Le fichier est vide") {
+      let prepJsonArray = [];
+      prepJsonArray.push(create_data);
+      // if file does not exist, create it and write data
+      await fs.promises.writeFile(filePath, JSON.stringify(prepJsonArray), {
+        encoding: "utf8",
+      });
+    } else {
+      existingFiles = await getStorage();
+      console.log("existingFiles------------------", existingFiles);
+      existingFiles.push(create_data);
+      // if file exists, overwrite it with new data after backing up
+      fs.writeFileSync(filePath, JSON.stringify(existingFiles), {
+        encoding: "utf8",
+      });
+    }
   } else {
     let prepJsonArray = [];
     prepJsonArray.push(create_data);
