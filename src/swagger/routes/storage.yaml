@@ -1,0 +1,129 @@
+/Storage:
+  post:
+    x-swagger-router-controller: Storage
+    description: Stock in local storage
+    operationId: setStorage
+    parameters:
+      - name: data
+        in: body
+        description: id of the form_type to perform
+        required: true
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+    tags:
+      - public
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+  get:
+    x-swagger-router-controller: Storage
+    description: read data from local file storage
+    operationId: getStorage
+    tags:
+      - public
+    parameters:
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+  put:
+    x-swagger-router-controller: Storage
+    description: change data in local file storage
+    operationId: changeStorage
+    parameters:
+      - name: data
+        in: body
+        description: data to change in storage
+        required: true
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+    tags:
+      - public
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+  delete:
+    x-swagger-router-controller: Storage
+    description: delete data from local file storage
+    operationId: deleteStorage
+    tags:
+      - public
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+/Storage/{id}:
+  get:
+    x-swagger-router-controller: Storage
+    description: read data from local file storage by id
+    operationId: getStorageById
+    tags:
+      - public
+    parameters:
+      - name: id
+        in: path
+        description: ID of the storage object to retrieve
+        required: true
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"
+
+  put:
+    x-swagger-router-controller: Storage
+    description: change data of a specific data in local file storage
+    operationId: changeStorageById
+    parameters:
+      - name: id
+        in: path
+        description: ID of the storage object to retrieve
+        required: true
+        type: string
+      - name: data
+        in: body
+        description: data to change in storage
+        required: true
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+    tags:
+      - public
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"

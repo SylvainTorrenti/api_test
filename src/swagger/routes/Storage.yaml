@@ -1,0 +1,17 @@
+/Storage:
+  x-swagger-router-controller: Storage
+  post:
+    operationId: SetStorage
+    description: Stock in local storage
+    tags:
+      - public
+    parameters:
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/ObjectResponse"
+      default:
+        description: Error
+        schema:
+          $ref: "#/definitions/ErrorResponse"

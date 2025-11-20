@@ -1,16 +1,11 @@
-/my:
-  x-swagger-router-controller: my
+/message:
+  x-swagger-router-controller: Message
   get:
-    operationId: something
-    description: Do something
+    operationId: Message
+    description: Displays a hello message
     tags:
-      - depreciated
+      - public
     parameters:
-      - name: data_token
-        in: query
-        description: The search query in a token
-        required: true
-        type: string
     responses:
       "200":
         description: Success
