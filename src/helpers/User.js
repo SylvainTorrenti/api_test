@@ -12,7 +12,7 @@ const copyFilePath = path.join(__dirname, "storage_backup.json");
  * @param {*} new_data the data to store
  * @returns
  */
-async function setStorage(new_data) {
+async function setUser(new_data) {
   console.log("-------------------");
   console.log("new_data", new_data);
   console.log("-------------------");
@@ -41,7 +41,7 @@ async function setStorage(new_data) {
   if (fs.existsSync(filePath)) {
     //create a backup
     fs.copyFileSync(filePath, copyFilePath);
-    let existingFiles = await getStorage();
+    let existingFiles = await getUser();
     if (existingFiles.message == "Le fichier est vide") {
       let prepJsonArray = [];
       prepJsonArray.push(create_data);
@@ -50,7 +50,7 @@ async function setStorage(new_data) {
         encoding: "utf8",
       });
     } else {
-      existingFiles = await getStorage();
+      existingFiles = await getUser();
       console.log("existingFiles", existingFiles);
       existingFiles.push(create_data);
       // if file exists, overwrite it with new data after backing up
@@ -73,7 +73,7 @@ async function setStorage(new_data) {
  * function to get storage data from local JSON file
  * @returns
  */
-async function getStorage() {
+async function getUser() {
   if (!filePath) {
     return { message: "Le fichier de stockage n'existe pas" };
   }
@@ -95,11 +95,11 @@ async function getStorage() {
  * @param {*} id the id of the record to retrieve
  * @returns
  */
-async function getStorageById(id) {
+async function getUserById(id) {
   if (!filePath) {
     throw new Error("Le fichier de stockage n'existe pas");
   }
-  const records = await getStorage();
+  const records = await getUser();
   if (records.message == "Le fichier est vide") {
     throw new Error("Le fichier est vide");
   }
@@ -115,11 +115,11 @@ async function getStorageById(id) {
  * @param {*} new_data the new data to update in storage
  * @returns
  */
-async function changeStorage(new_data) {
+async function changeUser(new_data) {
   if (!filePath) {
     throw new Error("Le fichier de stockage n'existe pas");
   }
-  let dataStored = await getStorage();
+  let dataStored = await getUser();
   if (dataStored.message == "Le fichier est vide") {
     throw new Error("Le fichier est vide");
   }
@@ -143,9 +143,9 @@ async function changeStorage(new_data) {
   return "Données modifiées avec succèsss";
 }
 
-async function changeStorageById(id, new_data) {
-  let fullData = await getStorage();
-  let dataToChange = await getStorageById(id);
+async function changeUserById(id, new_data) {
+  let fullData = await getUser();
+  let dataToChange = await getUserById(id);
   fullData = Array.from(fullData).filter(
     (entry) => !(entry.id == parseInt(id))
   );
@@ -178,12 +178,12 @@ async function changeStorageById(id, new_data) {
  * function to delete storage data from local JSON file
  * @returns
  */
-async function deleteStorage() {
+async function deleteUser() {
   let prepJsonArray = [];
   if (!filePath) {
     throw new Error("Le fichier de stockage n'existe pas");
   }
-  const response = await getStorage();
+  const response = await getUser();
   if (response.message == "Le fichier est vide") {
     throw new Error("Le fichier est déjà vide");
   }
@@ -197,10 +197,10 @@ async function deleteStorage() {
 }
 
 module.exports = {
-  setStorage,
-  getStorage,
-  deleteStorage,
-  changeStorage,
-  getStorageById,
-  changeStorageById,
+  setUser,
+  getUser,
+  deleteUser,
+  changeUser,
+  getUserById,
+  changeUserById,
 };

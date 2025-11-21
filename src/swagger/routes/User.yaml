@@ -1,8 +1,8 @@
 /User:
   post:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: Stock in local storage
-    operationId: setStorage
+    operationId: setUser
     tags:
       - Create user
     parameters:
@@ -23,9 +23,9 @@
         description: Created
 
   get:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: read data from local file storage
-    operationId: getStorage
+    operationId: getUser
     tags:
       - Get user
     parameters:
@@ -40,9 +40,9 @@
           $ref: "#/definitions/ErrorResponse"
 
   put:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: change data in local file storage
-    operationId: changeStorage
+    operationId: changeUser
     parameters:
       - name: data
         in: body
@@ -63,9 +63,9 @@
           $ref: "#/definitions/ErrorResponse"
 
   delete:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: delete data from local file storage
-    operationId: deleteStorage
+    operationId: deleteUser
     tags:
       - Delete user
     responses:
@@ -79,9 +79,9 @@
           $ref: "#/definitions/ErrorResponse"
 /User/{id}:
   get:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: read data from local file storage by id
-    operationId: getStorageById
+    operationId: getUserById
     tags:
       - Get user
     parameters:
@@ -101,9 +101,9 @@
           $ref: "#/definitions/ErrorResponse"
 
   put:
-    x-swagger-router-controller: Storage
+    x-swagger-router-controller: User
     description: change data of a specific data in local file storage
-    operationId: changeStorageById
+    operationId: changeUserById
     parameters:
       - name: id
         in: path
