@@ -4,8 +4,9 @@ const storage = require("../helpers/Storage");
 class StorageController {
   async setStorage(req) {
     console.log("Inside set storage controllerrrrrrrrrrrrrrrrr method");
-    const nom = req.params.nom;
-    const prenom = req.params.prenom;
+    // const nom = req.params.nom;
+    // const prenom = req.params.prenom;
+    const { nom, prenom } = req.params;
     const response = await storage.setStorage({ nom, prenom });
     return response;
   }

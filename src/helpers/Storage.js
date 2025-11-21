@@ -66,7 +66,7 @@ async function setStorage(new_data) {
       encoding: "utf8",
     });
   }
-  return "Données enregistrées avec succès";
+  return `Les données avec l'id ${id}, le nom ${create_data.nom} et le prenom ${create_data.prenom} ont été stockées avec succès`;
 }
 
 /**
@@ -77,7 +77,7 @@ async function getStorage() {
   if (!filePath) {
     return { message: "Le fichier de stockage n'existe pas" };
   }
-  const data = fs.readFileSync(filePath, (err, data) => {
+  const data = fs.readFileSync(filePath, (err, tt) => {
     if (err) {
       throw err;
     }
@@ -171,7 +171,7 @@ async function changeStorageById(id, new_data) {
   fs.writeFileSync(filePath, JSON.stringify(fullData), {
     encoding: "utf8",
   });
-  return `Données avec l'id ${id} modifiées avec succès`;
+  return `Données avec l'id ${id} modifiées avec succès avec le nom ${dataToChange.nom} et le prenom ${dataToChange.prenom}`;
 }
 
 /**

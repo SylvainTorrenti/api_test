@@ -1,33 +1,33 @@
-/Storage:
+/User:
   post:
     x-swagger-router-controller: Storage
     description: Stock in local storage
     operationId: setStorage
-    parameters:
-      - name: data
-        in: body
-        description: id of the form_type to perform
-        required: true
-        schema:
-          $ref: "#/definitions/ObjectResponse"
     tags:
-      - public
+      - Create user
+    parameters:
+      - in: body
+        name: user
+        description: The user to create.
+        schema:
+          type: object
+          required:
+            - nom
+          properties:
+            nom:
+              type: string
+            prenom:
+              type: string
     responses:
-      "200":
-        description: Success
-        schema:
-          $ref: "#/definitions/ObjectResponse"
-      default:
-        description: Error
-        schema:
-          $ref: "#/definitions/ErrorResponse"
+      201:
+        description: Created
 
   get:
     x-swagger-router-controller: Storage
     description: read data from local file storage
     operationId: getStorage
     tags:
-      - public
+      - Get user
     parameters:
     responses:
       "200":
@@ -51,7 +51,7 @@
         schema:
           $ref: "#/definitions/ObjectResponse"
     tags:
-      - public
+      - Change user
     responses:
       "200":
         description: Success
@@ -67,7 +67,7 @@
     description: delete data from local file storage
     operationId: deleteStorage
     tags:
-      - public
+      - Delete user
     responses:
       "200":
         description: Success
@@ -77,13 +77,13 @@
         description: Error
         schema:
           $ref: "#/definitions/ErrorResponse"
-/Storage/{id}:
+/User/{id}:
   get:
     x-swagger-router-controller: Storage
     description: read data from local file storage by id
     operationId: getStorageById
     tags:
-      - public
+      - Get user
     parameters:
       - name: id
         in: path
@@ -117,7 +117,7 @@
         schema:
           $ref: "#/definitions/ObjectResponse"
     tags:
-      - public
+      - Change user
     responses:
       "200":
         description: Success
