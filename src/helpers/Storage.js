@@ -29,7 +29,7 @@ async function setStorage(new_data) {
   // prepare data for insertion
   id = Date.now();
   console.log("-------------------");
-  console.log("timeStamp------------------", id);
+  console.log("timeStamp", id);
   console.log("-------------------");
   let create_data = {
     id,
@@ -51,7 +51,7 @@ async function setStorage(new_data) {
       });
     } else {
       existingFiles = await getStorage();
-      console.log("existingFiles------------------", existingFiles);
+      console.log("existingFiles", existingFiles);
       existingFiles.push(create_data);
       // if file exists, overwrite it with new data after backing up
       fs.writeFileSync(filePath, JSON.stringify(existingFiles), {
